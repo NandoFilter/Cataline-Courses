@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução ao CSS</title>
+
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: green;
+            margin: 20px;
+        }
+
+        /* div:first-of-type {
+            background: red;
+        } */
+
+        /* div:last-of-type {
+            background: yellow;
+        } */
+        
+        /* div:nth-child(3) {
+            background: blue;
+        } */
+        
+        .amarelo {
+            background: yellow;
+        }
+
+        .vermelho {
+            background: red;
+        }
+
+        #azul {
+            background: blue;
+        }
+
+        .bordada {
+            border: 3px solid black;
+        }
+
+        .amarelo.bordada {
+            border-radius: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "amarelo bordada"></div>
+    <div class = "vermelho"></div>
+    <div id = "azul" class = "bordada"></div>
+    <div></div>
+</body>
+</html>
