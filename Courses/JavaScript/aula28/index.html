@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+    <style>
+        body {
+            background: #364253;
+        }
+
+        button {
+            color: white;
+            font-size: 20px;
+            background-color: rgb(51, 85, 238);
+            border-radius: 15px;
+            border-style: none;
+            width: 200px;            
+            height: 50px;
+
+            animation-name: reverse;
+            animation-duration: 1s;
+        }
+
+        button:hover {
+            animation-name: myanimation;
+            animation-duration: 1s;
+        }
+
+        @keyframes myanimation {
+            from {
+                background-color: rgb(51, 85, 238);
+            }
+
+            to {
+                background-color: rgb(35, 68, 211);
+            }
+        }
+
+        @keyframes reverse {
+            from {
+                background-color: rgb(35, 68, 211);
+            }
+
+            to {
+                background-color: rgb(51, 85, 238);
+            }
+        }
+    </style>
+</head>
+    <body>
+        <div id="app">
+            <button>Carregar Usuários</button>
+        </div>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
