@@ -1,27 +1,26 @@
 "use strict";
 
-var numbers = [1, 2, 3, 4, 5]; // numbers.forEach ( function ( number, index ) {
-//     numbers[index] = number + 1
-// } )
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-var newNumbers = numbers.map(function (number) {
-  return number + 1;
-});
-console.log(newNumbers);
-console.log(numbers); // -----------------------------------
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
-var total = numbers.reduce(function (total, nextNumber) {
-  /**
-   * Total + NextNumber
-   * ------------------
-   *   0   +   1
-   *   1   +   2
-   *   2   +   3
-   *   3   +   4
-   *   4   +   5
-   * ------------------
-   * Return 15
-   */
-  return total + nextNumber;
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// SPREAD
+var numbers1 = [1, 2, 3, 4, 5];
+var numbers2 = [5, 6, 7, 8, 9, 10];
+var numbers = [].concat(numbers1, numbers2);
+console.log(numbers); // -----------------------
+
+var person = {
+  name: 'Fernando',
+  age: 19,
+  height: 1.88,
+  country: 'Brazil'
+};
+
+var person1 = _objectSpread(_objectSpread({}, person), {}, {
+  country: 'Canada'
 });
-console.log(total);
+
+console.log(person1);

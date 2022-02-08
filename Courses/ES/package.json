@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "babel ./src/Aula02_Arrays/main.js -o ./public/bundle.js -w"
+    "dev": "babel ./src/08_Rest_Spread/spread.js -o ./public/bundle.js -w"
   },
   "keywords": [],
   "author": "",
