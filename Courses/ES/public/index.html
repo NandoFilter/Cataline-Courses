@@ -7,8 +7,9 @@
   </head>
   <body>
     <div id="app">
+      <h1>{{ todo }}</h1>
       <form>
-        <input type="text" placeholder="Todo" />
+        <input type="text" placeholder="Todo" v-model="todo" />
 
         <label class="checkbox-input">
           Não concluída
