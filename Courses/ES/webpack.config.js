@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
-  entry: ['@babel/polyfill', path.resolve(__dirname, './src/13_Webpack/try_catch.js')],
+  entry: ['@babel/polyfill', path.resolve(__dirname, './src/14_Practing/main.js')],
   output: {
     path: path.resolve(__dirname, './public'),
     filename: 'bundle.js',
