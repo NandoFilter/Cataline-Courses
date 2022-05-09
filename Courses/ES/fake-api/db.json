@@ -1,0 +1,24 @@
+{
+    "todos": [
+        {
+            "id": 1,
+            "text": "Lavar as roupas",
+            "done": false
+        },
+        {
+            "id": 2,
+            "text": "Estudar",
+            "done": true
+        },
+        {
+            "id": 3,
+            "text": "Preparar jantar",
+            "done": false
+        },
+        {
+            "id": 4,
+            "text": "Descansar",
+            "done": true
+        }
+    ]
+}

@@ -7,11 +7,18 @@ const apiTodos = new Todos()
 const app = createApp({
     data() {
         return {
-            todo: ''
+            todos: [],
         }
     },
-    created() {},
-    methods: {},
+    created() {
+        this.fetchTodos()
+    },
+    methods: {
+        async fetchTodos() {
+            this.todos = await apiTodos.index()
+            console.log(this.todos);
+        }
+    },
 })
 
 app.mount('#app')
