@@ -24,14 +24,14 @@
         <span class="todos-title">Todos</span>
 
         <li :class="['todo', { done: todo.done }]" v-for="todo in todos">
-          <label class="checkbox-input" @click="toggleTodoStatus(todo)">
+          <label class="checkbox-input" @click="toggleTodoStatus( todo )">
             <input type="checkbox" :checked="todo.done"/>
             <span class="checkmark"></span>
           </label>
 
           <span class="todo-text">{{ todo.text }}</span>
 
-          <a class="todo-delete"></a>
+          <a class="todo-delete" @click="destroyTodo( todo.id )"></a>
         </li>
       </ul>
     </div>
