@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import Todos from './api/todos'
 import './assets/css/style.css'
 
-const allTodos = new Todos()
+const apiTodos = new Todos()
 
 const app = createApp({
     data() {
@@ -19,16 +19,26 @@ const app = createApp({
     },
     methods: {
         async fetchAll() {
-            this.todos = await allTodos.index()
+            this.todos = await apiTodos.index()
             console.log(this.todos);
         },
         async createTodo() {
-            const newTodo = await allTodos.store( this.form );
-            this.todos.push( newTodo );
+            const data = await apiTodos.store( this.form );
+            this.todos.push( data );
 
             this.form.text = '';
             this.form.done = false;
-        }
+        },
+        async toggleTodoStatus( todo ) {
+            const data = await apiTodos.update({
+                ...todo,
+                done: !todo.done
+            });
+
+            const index = this.todos.findIndex(({ id }) => id === data.id );
+
+            this.todos[index] = data
+        },
     },
 })
 

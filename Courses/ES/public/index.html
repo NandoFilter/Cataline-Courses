@@ -8,7 +8,7 @@
   <body>
     <div id="app">
       <h1>{{ name }}</h1>
-      <form @submit.prevent="createTodo">
+      <form @submit.prevent="createTodo()">
         <input type="text" placeholder="Todo" v-model="form.text" />
 
         <label class="checkbox-input">
@@ -24,7 +24,7 @@
         <span class="todos-title">Todos</span>
 
         <li :class="['todo', { done: todo.done }]" v-for="todo in todos">
-          <label class="checkbox-input">
+          <label class="checkbox-input" @click="toggleTodoStatus(todo)">
             <input type="checkbox" :checked="todo.done"/>
             <span class="checkmark"></span>
           </label>
