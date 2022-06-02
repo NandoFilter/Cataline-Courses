@@ -2,21 +2,32 @@ import { createApp } from 'vue'
 import Todos from './api/todos'
 import './assets/css/style.css'
 
-const apiTodos = new Todos()
+const allTodos = new Todos()
 
 const app = createApp({
     data() {
         return {
             todos: [],
+            form: {
+                text: '',
+                done: false,
+            },
         }
     },
     created() {
-        this.fetchTodos()
+        this.fetchAll()
     },
     methods: {
-        async fetchTodos() {
-            this.todos = await apiTodos.index()
+        async fetchAll() {
+            this.todos = await allTodos.index()
             console.log(this.todos);
+        },
+        async createTodo() {
+            const newTodo = await allTodos.store( this.form );
+            this.todos.push( newTodo );
+
+            this.form.text = '';
+            this.form.done = false;
         }
     },
 })
