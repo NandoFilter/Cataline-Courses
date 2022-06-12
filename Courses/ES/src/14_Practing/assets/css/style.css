@@ -125,7 +125,7 @@ body {
   }
   
   .todo .todo-delete:hover {
-    background-color: #984848;
+    background-color: #b11f4a;
   }
   
   .todo.done .todo-text {
