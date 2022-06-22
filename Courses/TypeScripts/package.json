@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --quiet --clear ./src/03_extras/path_mapping/main.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --quiet --clear ./src/03_extras/decorators/main.ts"
   },
   "keywords": [],
   "author": "",
