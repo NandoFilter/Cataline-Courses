@@ -10,13 +10,25 @@
   <body>
     <div id="app">
       <h1>Hello {{ name }}</h1>
+
+      <button @click="showName">Clique</button>
+
+      <div v-for="user in users">
+        <h2>Hello {{ user.name }}</h2>
+      </div>
     </div>
     <script>
       var app = Vue.createApp({
         data() {
           return {
-            name: 'Fernando'
+            name: 'Fernando',
+            users: [{ name: 'João' }, { name: 'Maria' }, { name: 'Cláudio' }]
           }
+        },
+        methods: {
+          showName() {
+            alert(this.name)
+          },
         }
       })
 
