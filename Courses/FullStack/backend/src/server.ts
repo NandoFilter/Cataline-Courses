@@ -1,6 +1,6 @@
 // Express é um micro framework para criar servidores back-end com o Node.js
 // Micro Framework: Framework que resolve um conjunto de problemas, não todos.
-import express, { json, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import { v4 as uuid } from 'uuid';
 
 const app = express();
