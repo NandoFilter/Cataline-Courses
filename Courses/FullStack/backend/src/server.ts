@@ -2,10 +2,12 @@
 // Micro Framework: Framework que resolve um conjunto de problemas, não todos.
 import express, { Request, Response } from 'express';
 import { v4 as uuid } from 'uuid';
+import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
+app.use(cors({ origin: '*' }))
 
 // Métodos HTTP -> GET | POST | PUT | DELETE
 
