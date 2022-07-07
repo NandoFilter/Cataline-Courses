@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, warn } from 'vue'
+import { defineComponent } from 'vue'
 import axios from '@/utils/axios'
 
 interface User {
