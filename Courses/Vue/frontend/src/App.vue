@@ -1,22 +1,51 @@
 <template>
-  <h1>{{ count }}</h1>
+  <p v-for="todo in doneTodos" :key="todo.text">
+    {{ todo.text }}
+  </p>
 
-  <button @click="count++">Incrementar</button>
+  <button @click="checkAllTodos">Finalizar</button>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+interface Todo {
+  text: string
+  done: boolean
+}
+
 export default defineComponent({
   data() {
     return {
-      count: 0,
+      todos: [] as Todo[],
     }
   },
+  computed: {
+    doneTodos(): Todo[] {
+      return this.todos.filter((todo) => todo.done)
+    },
+  },
   watch: {
-    count(newValue, oldValue) {
-      console.log(oldValue)
-      console.log(newValue)
+    todos(newValue: Todo[]) {
+      const isFinished = !newValue.some(({ done }) => !done)
+
+      if (isFinished) {
+        alert('Todas as tarefas foram finalizadas!')
+      }
+    },
+  },
+  created() {
+    this.todos = [
+      { text: 'Estudar Typescript', done: true },
+      { text: 'Lavar os pratos', done: false },
+      { text: 'Aprender Nuxt.js', done: true },
+    ]
+  },
+  methods: {
+    checkAllTodos() {
+      this.todos = this.todos.map(({ text }) => {
+        return { text, done: true }
+      })
     },
   },
 })
