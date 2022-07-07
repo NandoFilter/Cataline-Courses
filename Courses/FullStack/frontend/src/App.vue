@@ -9,6 +9,7 @@
           <button type="submit">Adicionar</button>
         </form>
       </section>
+
       <section>
         <h5 class="title">Lista de Usuários</h5>
         <ul>
@@ -26,12 +27,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from '@/utils/axios'
-
-interface User {
-  id: string
-  name: string
-  email: string
-}
+import { User } from '@/models'
 
 export default defineComponent({
   data() {
