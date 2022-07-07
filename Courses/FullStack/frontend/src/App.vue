@@ -2,6 +2,14 @@
   <div class="users">
     <div class="container">
       <section>
+        <h5 class="title">Novo usuário</h5>
+        <form @submit.prevent="createUser">
+          <input type="text" placeholder="Nome" v-model="form.name" />
+          <input type="text" placeholder="E-mail" v-model="form.email" />
+          <button type="submit">Adicionar</button>
+        </form>
+      </section>
+      <section>
         <h5 class="title">Lista de Usuários</h5>
         <ul>
           <li v-for="user in users" :key="user.id">
@@ -16,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, warn } from 'vue'
 import axios from '@/utils/axios'
 
 interface User {
@@ -29,6 +37,10 @@ export default defineComponent({
   data() {
     return {
       users: [] as User[],
+      form: {
+        name: '',
+        email: '',
+      },
     }
   },
   created() {
@@ -39,6 +51,18 @@ export default defineComponent({
       try {
         const { data } = await axios.get('/users')
         this.users = data
+      } catch (error) {
+        console.warn(error)
+      }
+    },
+    async createUser() {
+      try {
+        const { data } = await axios.post('/users', this.form)
+
+        this.users.push(data)
+
+        this.form.name = ''
+        this.form.email = ''
       } catch (error) {
         console.warn(error)
       }
