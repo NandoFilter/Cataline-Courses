@@ -1,9 +1,7 @@
 <template>
   <h1>{{ count }}</h1>
 
-  <button @click="increment">Incrementar</button>
-  <button @click="decrease">Diminuir</button>
-  <button @click="reset">Resetar</button>
+  <button @click="count++">Incrementar</button>
 </template>
 
 <script lang="ts">
@@ -15,15 +13,10 @@ export default defineComponent({
       count: 0,
     }
   },
-  methods: {
-    increment() {
-      this.count++
-    },
-    decrease() {
-      this.count--
-    },
-    reset() {
-      this.count = 0
+  watch: {
+    count(newValue, oldValue) {
+      console.log(oldValue)
+      console.log(newValue)
     },
   },
 })
