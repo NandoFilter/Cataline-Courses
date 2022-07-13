@@ -6,9 +6,10 @@
     </a>
   </h1>
 
-  <!-- Não permite misturar informações JS com HTML -->
-  <!-- <p v-text="company">é boa</p> -->
+  <!-- v-text e v-html não permitem misturar informações JS com HTML -->
   <p v-text="company"></p>
+
+  <p>Acesse: <span v-html="link" /></p>
 </template>
 
 <script lang="ts">
@@ -23,6 +24,7 @@ export default defineComponent({
         stock: true,
       },
       company: 'Cataline',
+      link: '<a href="https://cataline.io">Cataline</a>',
     }
   },
   computed: {
