@@ -11,8 +11,15 @@
 
   <p>Acesse: <span v-html="link" /></p>
 
+  <!-- v-on -->
   <a href="#interno" @click.once.prevent="sayHello">Link Interno</a>
   <input type="text" @keyup.enter="sayHello" />
+
+  <!-- v-once -->
+  <p v-once>Contagem inicial: {{ count }}</p>
+  <p>Contagem atualizada: {{ count }}</p>
+
+  <button @click="count++">Aumentar contagem</button>
 </template>
 
 <script lang="ts">
@@ -28,6 +35,7 @@ export default defineComponent({
       },
       company: 'Cataline',
       link: '<a href="https://cataline.io">Cataline</a>',
+      count: 1,
     }
   },
   computed: {
