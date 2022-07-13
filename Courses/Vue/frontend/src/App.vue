@@ -10,6 +10,9 @@
   <p v-text="company"></p>
 
   <p>Acesse: <span v-html="link" /></p>
+
+  <a href="#interno" @click.once.prevent="sayHello">Link Interno</a>
+  <input type="text" @keyup.enter="sayHello" />
 </template>
 
 <script lang="ts">
@@ -30,6 +33,11 @@ export default defineComponent({
   computed: {
     productClass(): string {
       return this.product.stock ? 'success' : 'danger'
+    },
+  },
+  methods: {
+    sayHello() {
+      console.log('Hello World')
     },
   },
 })
