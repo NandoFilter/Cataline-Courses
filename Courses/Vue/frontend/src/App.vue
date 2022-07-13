@@ -3,6 +3,7 @@
   <h1>{{ count }}</h1>
 
   <button @click="count++">Clique</button>
+  <button @click="destroyComponent">Desmontar</button>
 </template>
 
 <script lang="ts">
@@ -38,6 +39,19 @@ export default defineComponent({
   updated() {
     // Ocorre após a mudança de algum dado
     console.log('Depois da atualização')
+  },
+  beforeUnmount() {
+    // Ocorre antes de destruir um componente
+    console.log('Antes de desmontar')
+  },
+  unmounted() {
+    // Ocorre após destruir um componente
+    console.log('Depois de desmontar')
+  },
+  methods: {
+    destroyComponent() {
+      this.$.appContext.app.unmount()
+    },
   },
 })
 </script>
