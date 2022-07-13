@@ -1,5 +1,8 @@
 <template>
   <h1>{{ message }}</h1>
+  <h1>{{ count }}</h1>
+
+  <button @click="count++">Clique</button>
 </template>
 
 <script lang="ts">
@@ -9,7 +12,7 @@ export default defineComponent({
   data() {
     return {
       message: 'Hello World',
-      posts: [],
+      count: 0,
     }
   },
   beforeCreate() {
@@ -27,6 +30,14 @@ export default defineComponent({
   mounted() {
     // Com acesso a DOM
     console.log(this.$el) // <h1>Hello World</h1>
+  },
+  beforeUpdate() {
+    // Ocorre antes da mudança de algum dado
+    console.log('Antes da atualização')
+  },
+  updated() {
+    // Ocorre após a mudança de algum dado
+    console.log('Depois da atualização')
   },
 })
 </script>
