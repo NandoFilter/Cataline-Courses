@@ -1,21 +1,20 @@
 <template>
-  <Header></Header>
   <h1>
     <!-- v-bind -->
     <a :href="product.url" :class="productClass">
       {{ product.name }}
     </a>
   </h1>
+
+  <!-- Não permite misturar informações JS com HTML -->
+  <!-- <p v-text="company">é boa</p> -->
+  <p v-text="company"></p>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Header from './components/HeaderApp.vue'
 
 export default defineComponent({
-  components: {
-    Header,
-  },
   data() {
     return {
       product: {
@@ -23,6 +22,7 @@ export default defineComponent({
         url: 'http://loja.com/produtos/12345',
         stock: true,
       },
+      company: 'Cataline',
     }
   },
   computed: {
