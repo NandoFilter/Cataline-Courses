@@ -21,10 +21,21 @@
 
   <button @click="count++">Aumentar contagem</button>
 
-  <!-- v-if -->
+  <!-- v-if não renderiza os elementos -->
   <h1 v-if="isMale">Masculino</h1>
   <h1 v-else-if="isFem">Feminino</h1>
   <h1 v-else>Outro</h1>
+
+  <!-- v-show esconde os elementos -->
+  <h1 v-show="isMale">Masculino</h1>
+  <h1 v-show="isFem">Feminino</h1>
+
+  <!-- v-for -->
+  <ul>
+    <li v-for="product in products" :key="product.id">
+      <p>{{ product.name }}</p>
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
@@ -41,7 +52,14 @@ export default defineComponent({
       company: 'Cataline',
       link: '<a href="https://cataline.io">Cataline</a>',
       count: 1,
-      gender: 'F',
+      gender: 'M',
+
+      products: [
+        { id: 1, name: 'Camisa', stock: true },
+        { id: 2, name: 'Bota', stock: false },
+        { id: 3, name: 'Chapéu', stock: false },
+        { id: 4, name: 'Cinto', stock: true },
+      ],
     }
   },
   computed: {
