@@ -20,6 +20,11 @@
   <p>Contagem atualizada: {{ count }}</p>
 
   <button @click="count++">Aumentar contagem</button>
+
+  <!-- v-if -->
+  <h1 v-if="isMale">Masculino</h1>
+  <h1 v-else-if="isFem">Feminino</h1>
+  <h1 v-else>Outro</h1>
 </template>
 
 <script lang="ts">
@@ -36,11 +41,18 @@ export default defineComponent({
       company: 'Cataline',
       link: '<a href="https://cataline.io">Cataline</a>',
       count: 1,
+      gender: 'F',
     }
   },
   computed: {
     productClass(): string {
       return this.product.stock ? 'success' : 'danger'
+    },
+    isMale(): boolean {
+      return this.gender === 'M'
+    },
+    isFem(): boolean {
+      return this.gender === 'F'
     },
   },
   methods: {
