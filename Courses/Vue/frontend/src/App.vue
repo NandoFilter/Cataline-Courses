@@ -68,6 +68,9 @@
   <p>Newsletter: {{ newsletter }}</p>
   <p>Cor: {{ color }}</p>
   <p>Fruta: {{ fruit }}</p>
+
+  <!-- Creating my own directives -->
+  <h1 v-highlight:background.shadow="'lightblue'">Hello World</h1>
 </template>
 
 <script lang="ts">
