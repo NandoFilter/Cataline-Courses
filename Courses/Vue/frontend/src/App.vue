@@ -36,6 +36,38 @@
       <p>{{ product.name }}</p>
     </li>
   </ul>
+
+  <!-- v-model -->
+  <form>
+    <!-- Modificador Lazy só carrega valor quando campo perder foco  -->
+    <!-- Modificador Trim remove espaços -->
+    <input type="text" placeholder="Nome" v-model.lazy.trim="name" />
+
+    <!-- Modificador Number transforma o valor em numérico -->
+    <input type="number" placeholder="Idade" v-model.number="age" />
+
+    <textarea rows="2" placeholder="Descrição" v-model="message"></textarea>
+
+    <input type="checkbox" v-model="newsletter" /> Newsletter <br />
+
+    <input type="radio" name="color" value="vermelho" v-model="color" /> Red
+    <input type="radio" name="color" value="verde" v-model="color" /> Green
+    <input type="radio" name="color" value="azul" v-model="color" /> Blue
+
+    <select v-model="fruit">
+      <option disabled selected>Selecione uma fruta</option>
+      <option value="uva">Uva</option>
+      <option value="banana">Banana</option>
+      <option value="morango">Morango</option>
+    </select>
+  </form>
+
+  <p>Nome: {{ name }}</p>
+  <p>Idade: {{ age }}</p>
+  <p>Mensagem: {{ message }}</p>
+  <p>Newsletter: {{ newsletter }}</p>
+  <p>Cor: {{ color }}</p>
+  <p>Fruta: {{ fruit }}</p>
 </template>
 
 <script lang="ts">
@@ -60,6 +92,13 @@ export default defineComponent({
         { id: 3, name: 'Chapéu', stock: false },
         { id: 4, name: 'Cinto', stock: true },
       ],
+
+      name: '',
+      age: 0,
+      message: '',
+      newsletter: false,
+      color: '',
+      fruit: '',
     }
   },
   computed: {
@@ -88,5 +127,17 @@ export default defineComponent({
 
 .danger {
   color: red;
+}
+
+input[type='email'],
+input[type='text'],
+select,
+textarea {
+  display: block;
+}
+
+form {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #000;
 }
 </style>
