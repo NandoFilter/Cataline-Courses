@@ -1,13 +1,29 @@
 <template>
-  <h1></h1>
+  <ButtonStyled />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import ButtonStyled from '@/components/ButtonStyled.vue'
 
 export default defineComponent({
+  components: {
+    ButtonStyled,
+  },
   data() {
     return {}
   },
 })
 </script>
+
+<style scoped>
+.button-styled {
+  position: absolute;
+  top: 45%;
+}
+
+/* Estilização profunda */
+::v-deep.button-styled span {
+  color: #000;
+}
+</style>
