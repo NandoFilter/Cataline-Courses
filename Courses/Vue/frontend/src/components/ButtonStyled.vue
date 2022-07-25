@@ -1,14 +1,35 @@
 <template>
-  <button class="button-styled">
-    Clique
-    <span>aqui</span>
-  </button>
+  <button :class="['button-styled', color]">{{ text }} {{ user?.name }}</button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 
-export default defineComponent({})
+type color = 'success' | 'danger' | 'primary'
+
+interface User {
+  id: number
+  name: string
+}
+
+export default defineComponent({
+  props: {
+    text: {
+      type: [String, Number],
+      required: true,
+    },
+    color: {
+      type: String,
+      default: 'primary',
+      validator: (value: color) => {
+        return ['success', 'danger', 'primary'].includes(value)
+      },
+    },
+    user: {
+      type: Object as PropType<User>,
+    },
+  },
+})
 </script>
 
 <style scoped>
@@ -21,6 +42,17 @@ export default defineComponent({})
   cursor: pointer;
   display: block;
   margin-bottom: 1rem;
+}
+
+.success {
+  background-color: #077c07;
+}
+
+.danger {
+  background-color: #9e0808;
+}
+
+.primary {
   background-color: #2d6cea;
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <ButtonStyled />
+  <ButtonStyled text="Sucesso" color="success" />
+  <ButtonStyled text="Perigo" color="danger" />
+  <ButtonStyled :text="123" :user="user"></ButtonStyled>
 </template>
 
 <script lang="ts">
@@ -11,17 +13,17 @@ export default defineComponent({
     ButtonStyled,
   },
   data() {
-    return {}
+    return {
+      user: {
+        id: 1,
+        name: 'Fernando',
+      },
+    }
   },
 })
 </script>
 
 <style scoped>
-.button-styled {
-  position: absolute;
-  top: 45%;
-}
-
 /* Estilização profunda */
 ::v-deep.button-styled span {
   color: #000;
