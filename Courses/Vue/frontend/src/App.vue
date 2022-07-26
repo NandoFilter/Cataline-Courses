@@ -1,7 +1,13 @@
 <template>
   <ButtonStyled text="Sucesso" color="success" />
   <ButtonStyled text="Perigo" color="danger" />
-  <ButtonStyled :text="123" :user="user"></ButtonStyled>
+  <ButtonStyled :text="123" :user="user" />
+
+  <ButtonStyled text="Facebook">
+    <template v-slot:before>
+      <i class="fa-brands fa-facebook-f"></i>
+    </template>
+  </ButtonStyled>
 </template>
 
 <script lang="ts">

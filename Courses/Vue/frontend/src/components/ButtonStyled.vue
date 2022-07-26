@@ -1,5 +1,9 @@
 <template>
-  <button :class="['button-styled', color]">{{ text }} {{ user?.name }}</button>
+  <button :class="['button-styled', color]">
+    <slot name="before" />
+    {{ text }} {{ user?.name }}
+    <slot name="after" />
+  </button>
 </template>
 
 <script lang="ts">
