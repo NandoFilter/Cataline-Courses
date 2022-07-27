@@ -18,11 +18,12 @@
     name="fade"
     enter-active-class="entrada"
     leave-active-class="saida"
+    appear
   >
     <h1 v-if="show">Hello World</h1>
   </transition>
 
-  <transition name="scale">
+  <transition name="scale" :appear="false">
     <h1 v-if="show">Hello World</h1>
   </transition>
 </template>
@@ -33,7 +34,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   data() {
     return {
-      show: false,
+      show: true,
     }
   },
 })
