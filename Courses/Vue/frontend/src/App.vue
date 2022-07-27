@@ -1,5 +1,9 @@
 <template>
-  <button @click="show = !show">Toggle</button>
+  <ul>
+    <li @click="view = 'Home'">Home</li>
+    <li @click="view = 'About'">Sobre</li>
+    <li @click="view = 'Contact'">Contato</li>
+  </ul>
 
   <!--
     Transitions Hooks
@@ -14,27 +18,43 @@
     @leave-cancelled="leaveCancelled"
   -->
 
+  <!--
+    Vue oferece alguns modos de transição alternativos:
+
+    in-out
+    Novo elemento realiza a transição de entrada primeiro; quando completada, o elemento atual realiza a transição de saída.
+
+    out-in
+    Elemento atual realiza a transição de saída primeiro; quando completada, o novo elemento realiza a transição de entrada.
+  -->
+
   <transition
     name="fade"
     enter-active-class="entrada"
     leave-active-class="saida"
     appear
+    mode="out-in"
   >
-    <h1 v-if="show">Hello World</h1>
+    <component :is="view" />
   </transition>
 
-  <transition name="scale" :appear="false">
-    <h1 v-if="show">Hello World</h1>
-  </transition>
+  <!-- <transition name="scale" :appear="false"> -->
+  <!-- <h1 v-if="show">Hello World</h1> -->
+  <!-- </transition> -->
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import Home from '@/pages/Home.vue'
+import About from '@/pages/About.vue'
+import Contact from '@/pages/Contact.vue'
+
 export default defineComponent({
+  components: { Home, About, Contact },
   data() {
     return {
-      show: true,
+      view: 'Home',
     }
   },
 })
@@ -62,16 +82,6 @@ export default defineComponent({
 
 .entrada,
 .saida {
-  transition: opacity 1s;
-}
-
-.scale-enter-from,
-.scale-leave-to {
-  scale: 1%;
-}
-
-.scale-enter-active,
-.scale-leave-active {
-  transition: scale 1s;
+  transition: opacity 0.5s;
 }
 </style>
