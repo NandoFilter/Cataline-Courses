@@ -1,5 +1,5 @@
 <template>
-  <ButtonStyled text="Sucesso" color="success" />
+  <ButtonStyled text="Sucesso" color="success" @sayHello="print($event)" />
   <ButtonStyled text="Perigo" color="danger" />
   <ButtonStyled :text="123" :user="user" />
 
@@ -25,6 +25,11 @@ export default defineComponent({
         name: 'Fernando',
       },
     }
+  },
+  methods: {
+    print(event: string) {
+      console.log(event)
+    },
   },
 })
 </script>
