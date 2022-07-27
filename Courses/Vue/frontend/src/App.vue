@@ -1,7 +1,11 @@
 <template>
   <button @click="show = !show">Toggle</button>
 
-  <transition name="fade">
+  <transition
+    name="fade"
+    enter-active-class="entrada"
+    leave-active-class="saida"
+  >
     <h1 v-if="show">Hello World</h1>
   </transition>
 
@@ -40,8 +44,8 @@ O nome inicial `v` depende do atributo `name`
   opacity: 0;
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.entrada,
+.saida {
   transition: opacity 1s;
 }
 
