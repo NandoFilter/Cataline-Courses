@@ -1,6 +1,19 @@
 <template>
   <button @click="show = !show">Toggle</button>
 
+  <!--
+    Transitions Hooks
+    -------------------------
+    @before-enter="beforeEnter"
+    @enter="enter"
+    @after-enter="afterEnter"
+    @enter-cancelled="enterCancelled"
+    @before-leave="beforeLeave"
+    @leave="leave"
+    @after-leave="afterLeave"
+    @leave-cancelled="leaveCancelled"
+  -->
+
   <transition
     name="fade"
     enter-active-class="entrada"
@@ -28,15 +41,17 @@ export default defineComponent({
 
 <style scoped>
 /* 
-v-enter-from (de onde estar vindo)
-v-enter-active (como vai acontecer)
-v-enter-to (para onde está indo)
+  Transition Classes
+  ---------------------------------
+  v-enter-from (de onde estar vindo)
+  v-enter-active (como vai acontecer)
+  v-enter-to (para onde está indo)
 
-v-leave-from (de onde estar vindo)
-v-leave-active (como vai acontecer)
-v-leave-to (para onde está indo)
+  v-leave-from (de onde estar vindo)
+  v-leave-active (como vai acontecer)
+  v-leave-to (para onde está indo)
 
-O nome inicial `v` depende do atributo `name`
+  O nome inicial `v` depende do atributo `name`
 */
 
 .fade-enter-from,
