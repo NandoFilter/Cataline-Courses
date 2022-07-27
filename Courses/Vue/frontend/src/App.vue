@@ -1,53 +1,57 @@
 <template>
-  <ButtonStyled text="Sucesso" color="success" @sayHello="print($event)" />
-  <ButtonStyled text="Perigo" color="danger" />
-  <ButtonStyled :text="123" :user="user" />
+  <button @click="show = !show">Toggle</button>
 
-  <ButtonStyled text="Facebook">
-    <template v-slot:before>
-      <i class="fa-brands fa-facebook-f"></i>
-    </template>
-  </ButtonStyled>
+  <transition name="fade">
+    <h1 v-if="show">Hello World</h1>
+  </transition>
 
-  <ul>
-    <li @click="currentView = 'Home'">Home</li>
-    <li @click="currentView = 'About'">Sobre</li>
-    <li @click="currentView = 'Contact'">Contato</li>
-  </ul>
-
-  <component :is="currentView" />
+  <transition name="scale">
+    <h1 v-if="show">Hello World</h1>
+  </transition>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import Home from '@/pages/Home.vue'
-import About from '@/pages/About.vue'
-import Contact from '@/pages/Contact.vue'
-
 export default defineComponent({
-  components: { Home, About, Contact },
   data() {
     return {
-      user: {
-        id: 1,
-        name: 'Fernando',
-      },
-
-      currentView: 'Home',
+      show: false,
     }
-  },
-  methods: {
-    print(event: string) {
-      console.log(event)
-    },
   },
 })
 </script>
 
 <style scoped>
-/* Estilização profunda */
-::v-deep.button-styled span {
-  color: #000;
+/* 
+v-enter-from (de onde estar vindo)
+v-enter-active (como vai acontecer)
+v-enter-to (para onde está indo)
+
+v-leave-from (de onde estar vindo)
+v-leave-active (como vai acontecer)
+v-leave-to (para onde está indo)
+
+O nome inicial `v` depende do atributo `name`
+*/
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+
+.scale-enter-from,
+.scale-leave-to {
+  scale: 1%;
+}
+
+.scale-enter-active,
+.scale-leave-active {
+  transition: scale 1s;
 }
 </style>
