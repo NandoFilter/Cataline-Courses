@@ -1,8 +1,7 @@
 <template>
-  <ul>
-    <nuxt-link to="/">Home</nuxt-link>
-    <nuxt-link to="/sobre">Sobre</nuxt-link>
-  </ul>
+  <div class="sobre">
+    <h1>Sobre</h1>
+  </div>
 </template>
 
 <style scoped>

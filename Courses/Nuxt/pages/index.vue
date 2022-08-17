@@ -1,9 +1,16 @@
 <template>
-  <ul>
-    <nuxt-link to="/">Home</nuxt-link>
-    <nuxt-link to="/sobre">Sobre</nuxt-link>
-  </ul>
+  <div class="home">
+    <h1>Home</h1>
+  </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  layout: 'dashboard'
+})
+</script>
 
 <style scoped>
 a.nuxt-link-exact-active {
