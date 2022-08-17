@@ -1,44 +1,33 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
+  <div class="post">
+    <h1>Postagem</h1>
+
+    <h2>{{ title }}</h2>
+    <p>{{ content }}</p>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
+const sleep = () => {
+  return new Promise((resolve) => setTimeout(resolve, 1500))
+}
+
 export default Vue.extend({
-  layout: 'website',
+  async asyncData() {
+    await sleep()
+
+    const title = 'My Post Title'
+    const content = 'Lorem ipsum dolor sit...'
+
+    return { title, content }
+  },
   data() {
     return {
-      title: 'Dynamic Title'
+      title: '',
+      content: ''
     }
-  },
-  head(this: any) {
-    return {
-      title: this.title,
-      htmlAttrs: {
-        lang: 'en'
-      },
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: '' },
-        { name: 'format-detection', content: 'telephone=no' }
-      ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
-    }
-  },
-  mounted() {
-    const posts = this.$axios.$get('/posts')
-
-    console.log(posts)
   }
 })
 </script>
-
-<style scoped>
-a.nuxt-link-exact-active {
-  font-weight: bold;
-}
-</style>
