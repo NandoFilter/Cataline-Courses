@@ -8,7 +8,12 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  layout: 'website'
+  layout: 'website',
+  mounted() {
+    const posts = this.$axios.$get('/posts')
+
+    console.log(posts)
+  }
 })
 </script>
 

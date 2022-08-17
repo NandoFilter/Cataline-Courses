@@ -31,7 +31,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxtjs/axios'],
+
+  axios: {
+    baseURL: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3333'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
